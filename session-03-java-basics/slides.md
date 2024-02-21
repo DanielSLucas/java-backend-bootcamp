@@ -30,3 +30,7 @@ public class HelloWorld {
 - Interface (collection of abstract methods) - that must be implemented by the classes that implements that interface
 - Enum (set of named values)
 - Record (a "carrier" of data)
+
+## Wrapper classes
+
+All primitive types (e.g. intm float, boolean) have a corresponding wrapper class (e.g. Integer, Float, Boolean), to turn the primitive into an object to be used by other classes e add some methods to the type.
