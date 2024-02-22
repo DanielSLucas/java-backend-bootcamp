@@ -115,3 +115,33 @@ class Outer {
     }   
 }
 ```
+
+# Records
+
+        Records are a compact and easy-to-use way to create simple data classes tha have only private fields and a public constructor, and no methods
+
+-> Records are used to carry data (like DTOs), and they are immutable, but the references that it carries are not.
+-> Records carry the values for its member variables that uniquely represent the instance entirely.
+
+```java
+record Point(int x, int y) {}
+```
+
+- Fields in Records are automatically generated as private final
+- constuctor is automatically generated to initialize all fields
+- automatically gets methods like `equals()`, `hashCode()` and `toString()`
+- automatically defines accessors
+
+```java
+Point point1 = new Point(1, 2);
+Point point2 = new Point(1, 2);
+System.out.println(point1.equals(point2)); // prints true
+System.out.println(point1.x()); // prints 1
+System.out.println(point1.y()); // prints 2
+```
+
+Its possible to make custom implementations of Records, but its not recommended.
+
+- Not meant to replace classes.
+- more consice way of expressing simple data classes
+- not intended to have methods or be extended
