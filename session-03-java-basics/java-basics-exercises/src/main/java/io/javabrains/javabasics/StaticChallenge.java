@@ -13,6 +13,45 @@ Create a class `Rectangle` with the following attributes: `width`, `height`, and
 public class StaticChallenge {
 
     public static void main(String[] args) {
+        Rectangle[] rectangles = {
+            new Rectangle(3, 2),
+            new Rectangle(4, 2),
+            new Rectangle(6, 4),
+            new Rectangle(5, 1),
+            new Rectangle(7, 3)
+        };
 
+        for (Rectangle rectangle : rectangles) {
+            System.out.println("Area: " + rectangle.getArea());
+            System.out.println("Perimeter: " + rectangle.getPerimeter());
+        }
+
+        System.out.println("Number of rectangles: " + Rectangle.getNumOfRectangles());
+    }
+}
+
+class Rectangle {
+    double width;
+    double height;
+
+    static int numOfRectangles = 0;
+
+    Rectangle (double width, double height) {
+        this.width = width;
+        this.height = height;
+
+        numOfRectangles++;
+    }
+
+    double getArea() {
+        return width * height;
+    }
+
+    double getPerimeter() {
+        return (width * 2) + (height * 2);
+    }
+
+    static int getNumOfRectangles() {
+        return numOfRectangles;
     }
 }
