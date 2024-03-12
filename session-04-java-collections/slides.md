@@ -138,3 +138,22 @@ that we have O(1) (amortized time complexity).
 - O(1) if there is space
 - O(n) if there is no space (so the array has to be copied to a new location in 
 the heap, where it has more space, the double of size it had before)
+
+## LinkedList
+
+- doubly-liked list data structure
+- each element in the list is connected to the next and previous elements
+- not recommended for us in most situations
+- most operations is O(n) on average
+- some eperations, like append and remove at the end of the list, cabe done in O(1)
+
+```java
+  List<String> fruits = new LinkedList<>();
+
+  fruits.add("apple");
+  fruits.add("banana");
+  fruits.add("orange");
+
+  System.out.println(fruits.get(1));
+  System.out.println(fruits);
+```
