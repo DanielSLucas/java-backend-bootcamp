@@ -74,3 +74,13 @@ A way to traverse a collection of objects without exposing its underlying
 representation.
 
 -> Look at `IteratorExercise.java`.
+
+# Fail-fast iterators
+
+Fail-fast iterators throw ConcurrentModificationException on a **best-effort** basis.
+
+- Iterators not tolerant to underlying changes
+- users an internal modification counter
+- throws ConcurrentModificationException if modified since last `next`
+
+*You can use the iterator to modify itself more securely. (like iterator.remove())
