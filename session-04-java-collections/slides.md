@@ -94,3 +94,40 @@ Collection
   -> Deque
 
 Map -> SortedMap
+
+# List interface
+
+- elements are stored in a specific order
+- can be accessed by their index
+- extends the `Collection` interface
+- adds addtional methods for index based access
+- most operations are O(1) or O(n) in the worst cases
+
+## Capabilities:
+
+- positional access
+- search
+- iteration
+- range view
+
+## Implementations
+
+- `ArrayList` (most used)
+- `LinkedList`
+- `Vector`
+- `Stack`
+- `CopyOnWriteArrayList`
+
+
+## Use
+```java
+  // List<String> fruits = Arrays.asList("apple", "banana", "orange"); // mutable
+  // List<String> fruits = List.of("apple", "banana", "orange"); // imutable
+  List<String> fruits = new ArrayList<>();
+
+  fruits.add("apple");
+  fruits.add("banana");
+  fruits.add("orange");
+
+  System.out.println(fruits);
+```
