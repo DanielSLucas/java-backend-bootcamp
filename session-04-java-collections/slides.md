@@ -101,7 +101,6 @@ Map -> SortedMap
 - can be accessed by their index
 - extends the `Collection` interface
 - adds addtional methods for index based access
-- most operations are O(1) or O(n) in the worst cases
 
 ## Capabilities:
 
@@ -118,7 +117,6 @@ Map -> SortedMap
 - `Stack`
 - `CopyOnWriteArrayList`
 
-
 ## Use
 ```java
   // List<String> fruits = Arrays.asList("apple", "banana", "orange"); // mutable
@@ -131,3 +129,12 @@ Map -> SortedMap
 
   System.out.println(fruits);
 ```
+
+## ArrayList
+
+Most operations are O(1) or O(n) ()in the worst cases, so in that case we say
+that we have O(1) (amortized time complexity).
+
+- O(1) if there is space
+- O(n) if there is no space (so the array has to be copied to a new location in 
+the heap, where it has more space, the double of size it had before)
