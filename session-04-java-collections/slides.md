@@ -67,3 +67,10 @@ Collections.sort(people);
 PersonComparator nameComparator = new PersonComparator();
 Collections.sort(people, nameComparator);
 ```
+
+# Iterator pattern
+
+A way to traverse a collection of objects without exposing its underlying 
+representation.
+
+-> Look at `IteratorExercise.java`.
