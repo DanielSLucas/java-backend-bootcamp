@@ -163,3 +163,17 @@ the heap, where it has more space, the double of size it had before)
 - similar to ArrayList
 - but it is synchronized (so **thread-safe**)
 - uncommon usage
+
+## Autoboxing with Lists
+
+List interface can be used with autoboxing to store primitive data types.
+
+```java
+  List<Integer> number = new ArrayList<>();
+
+  number.add(1);
+  number.add(2);
+  number.add(3);
+
+  System.out.println(number);
+```
