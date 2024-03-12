@@ -84,3 +84,13 @@ Fail-fast iterators throw ConcurrentModificationException on a **best-effort** b
 - throws ConcurrentModificationException if modified since last `next`
 
 *You can use the iterator to modify itself more securely. (like iterator.remove())
+
+# Collection interface hierarchy
+
+Collection 
+  -> Set -> SortedSet
+  -> List
+  -> Queue
+  -> Deque
+
+Map -> SortedMap
