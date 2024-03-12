@@ -157,3 +157,9 @@ the heap, where it has more space, the double of size it had before)
   System.out.println(fruits.get(1));
   System.out.println(fruits);
 ```
+
+## Vector
+
+- similar to ArrayList
+- but it is synchronized (so **thread-safe**)
+- uncommon usage
