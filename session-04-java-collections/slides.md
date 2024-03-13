@@ -339,3 +339,15 @@ way which the set knows if it has to double the number of buckets.
 
 - **implemented as a hash table with a linked list running through it**
 - Quite similar to HashSet but it provides insertion ordering
+
+## SortedSet and TreeSet
+
+- total ordering of elements
+- natural ordering
+- `Comparator` can be supplied
+- Iterator defaults to ascending order
+- Additional operations
+- The `SortedSet` is a interface which the `TreeSet` implements.
+- Each element **must be comparable**
+- performance: `add` = O(log n) and `contains` = O(log n)
+- balance the tree in O(log n) time
