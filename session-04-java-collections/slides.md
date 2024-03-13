@@ -370,3 +370,18 @@ Map = Dictionary = key value pairs
 `get`, `containsKey` and `put`
 
 Example at: **HashMapExample.java**
+
+## Queue Interface
+
+A collection designed for holding elements in a particular order prior to processing.
+
+- All Collection methods
+- insertion operations
+- extraction operations
+- inspection operations
+- There is two types of methods:
+    - one that throws an exception if the operation fails (`add`, `remove`, `element`)
+    - one that returns a special value (null or false)    (`offer`, `poll`, `peek`)
+- Implementations:
+    - LinkedList
+    - PriorityQueue (natural ordering of `Comparable` instances)
