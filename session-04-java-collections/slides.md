@@ -280,3 +280,10 @@ How to clear (remove) a range:
 ```java
   list.subList(fromIndex, toIndex).clear();
 ```
+
+## Equals with lists
+
+Two lists are defined to be equal if they contain the same elements in the same order.
+
+The `equals` method returns true if and only if the specified object is also a list, 
+both lists have the same size, and all corresponding pairs of elements in the two lists are equal.
