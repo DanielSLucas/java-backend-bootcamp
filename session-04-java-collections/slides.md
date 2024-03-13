@@ -325,3 +325,17 @@ It's a Collection tha cannot contain duplicate elements
 - fail-fast
 - not syncronized
 - operations are usually O(1) depending on the hash function of the element.
+
+## Load Factor
+
+load Factor = num of elem / num of buckets 
+-> Buckets are the "place" where the elements of a set are stored. 
+-> Buckets stores elements that have a hashcode in his range of hashcodes. 
+-> As the number of the elements increases the load factor decreases, that is the
+way which the set knows if it has to double the number of buckets.
+
+
+## LinkedHashSet
+
+- **implemented as a hash table with a linked list running through it**
+- Quite similar to HashSet but it provides insertion ordering
