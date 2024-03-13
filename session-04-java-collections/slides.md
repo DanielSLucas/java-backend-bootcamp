@@ -394,3 +394,9 @@ A linear collection that supports element insertion and removal at both ends.
 - Has the same methods of a Queue for the first or last element (like,`addFirst` or `addLast`, `offerFirst` or `offerLast`)
 - Implementations:
     - LinkedList
+
+## WeakHashMap
+
+- Implementation of the Map interface
+- stores only weak references to its keys (so they can be collected by the garbage collector)
+- usefull as a cache
