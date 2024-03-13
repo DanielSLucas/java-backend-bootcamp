@@ -361,3 +361,12 @@ Example at: **SortedSetExample.java**
 - is implemented by the `TreeSet`
 
 Example at: **NavigableSetExample.java**
+
+## Map
+
+Map = Dictionary = key value pairs
+
+`HashMap` (implementation of `Map` interface) perfomance is O(1) for 
+`get`, `containsKey` and `put`
+
+Example at: **HashMapExample.java**
