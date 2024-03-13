@@ -385,3 +385,12 @@ A collection designed for holding elements in a particular order prior to proces
 - Implementations:
     - LinkedList
     - PriorityQueue (natural ordering of `Comparable` instances)
+
+## Deque interface
+
+A linear collection that supports element insertion and removal at both ends. 
+(Double ended queue)
+
+- Has the same methods of a Queue for the first or last element (like,`addFirst` or `addLast`, `offerFirst` or `offerLast`)
+- Implementations:
+    - LinkedList
