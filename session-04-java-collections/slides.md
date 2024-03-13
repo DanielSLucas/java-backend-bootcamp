@@ -352,4 +352,12 @@ way which the set knows if it has to double the number of buckets.
 - performance: `add` = O(log n) and `contains` = O(log n)
 - balance the tree in O(log n) time
 
-Example at: SortedSetExample.java
+Example at: **SortedSetExample.java**
+
+## NavigableSet
+
+- interface that extentds `SortedSet`
+- add "navigation" methods that allows you to navigate a `SortedSet`
+- is implemented by the `TreeSet`
+
+Example at: **NavigableSetExample.java**
