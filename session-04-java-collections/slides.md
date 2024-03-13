@@ -400,3 +400,11 @@ A linear collection that supports element insertion and removal at both ends.
 - Implementation of the Map interface
 - stores only weak references to its keys (so they can be collected by the garbage collector)
 - usefull as a cache
+
+Example at: **WeakHashMapExample.java**
+
+## Collections utility methods
+
+Collections class has a lot of utility methods to use with collections.
+
+reference: https://docs.oracle.com/javase/8/docs/api/java/util/Collections.html
