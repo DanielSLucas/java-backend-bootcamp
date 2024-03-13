@@ -146,6 +146,7 @@ the heap, where it has more space, the double of size it had before)
 - not recommended for us in most situations
 - most operations is O(n) on average
 - some eperations, like append and remove at the end of the list, cabe done in O(1)
+- consumes more memory than an `ArrayList` or a `Vector`
 
 ```java
   List<String> fruits = new LinkedList<>();
@@ -177,3 +178,14 @@ List interface can be used with autoboxing to store primitive data types.
 
   System.out.println(number);
 ```
+
+## CopyOnWriteArrayList
+
+- thread-safe variant of `ArrayList`
+- concurrent collection class
+- uses a copy-on-write strategy
+- ensures that multiple threads can read the list simultaneously without the need
+for locks.
+- well-suited when many threads will be reading the list, but relatively few 
+will be modifying it
+- less efficient than a standard `ArrayList` when modifications are frequent
