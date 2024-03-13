@@ -189,3 +189,64 @@ for locks.
 - well-suited when many threads will be reading the list, but relatively few 
 will be modifying it
 - less efficient than a standard `ArrayList` when modifications are frequent
+
+## Iterators for List
+
+The default iterator uses index ordering and has the methods `hasNext`, `next` and `remove`.
+But there is also an list specifica iterator called `ListIterator`.
+
+## ListIterator
+
+- list specific
+- Allows you tu iterate both foward and backward directions
+- `hasPrevious` and `previous` operations
+
+```java
+  List<String> number = new ArrayList<>();
+
+  number.add('Item 1');
+  number.add('Item 2');
+  number.add('Item 3');
+  number.add('Item 4');
+
+  ListIterator<String> iterator = list.listIterator();
+
+  // Foward traversal
+  while (iterator.hasNext()) {
+    System.out.println(iterator.next());
+  }
+
+  // Backward traversal
+  while (iterator.hasPrevious()) {
+    System.out.println(iterator.previous());
+  }
+```
+
+### Additional Methods
+
+- set
+
+```java
+  public static <E> void replace(List<E> list, E val, E newVal) {
+    for (ListIterator<E> it = list.listIterator(); it.hasNext(); ) {
+      if (val.equals(it.next())) {
+        it.set(newVal);
+      }
+    }
+  }
+```
+
+- add
+
+```java
+  public static <E> void replace(List<E> list, E val, List<? extends E> newVal) {
+    for (ListIterator<E> it = list.listIterator(); it.hasNext(); ) {
+      if (val == null ? it.next() == null : val.equals(it.next())) {
+        it.remove();
+        for (E e : newVals) {
+          it.add(e)
+        }
+      }
+    }
+  }
+```
