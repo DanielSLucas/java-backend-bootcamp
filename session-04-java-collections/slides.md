@@ -250,3 +250,33 @@ But there is also an list specifica iterator called `ListIterator`.
     }
   }
 ```
+
+## SubList
+
+- List method that returns a "slice" of the orinal list. 
+- The returned list is backed by the original list (changes in the original 
+will reflect in the new one)
+- Usefull whenever you need to perform an operation on a range
+
+```java
+  List<String> fruits = new ArrayList<>();
+
+  fruits.add("apple");
+  fruits.add("banana");
+  fruits.add("orange");
+  fruits.add("pear");
+  fruits.add("mango");
+  fruits.add("kiwi");
+
+  List<String> subList = fruits.subList(1, 4);
+  System.out.println(subList); // [banana, orange, pear]
+
+  fruits.set(1, "bananaaaaa");
+  System.out.println(subList); // [bananaaaaa, orange, pear]
+```
+
+How to clear (remove) a range:
+
+```java
+  list.subList(fromIndex, toIndex).clear();
+```
