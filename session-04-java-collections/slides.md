@@ -287,3 +287,41 @@ Two lists are defined to be equal if they contain the same elements in the same 
 
 The `equals` method returns true if and only if the specified object is also a list, 
 both lists have the same size, and all corresponding pairs of elements in the two lists are equal.
+
+## Set Interface
+
+It's a Collection tha cannot contain duplicate elements
+
+- mathematical set abstraction
+- no duplicates allowed
+- automatically dedupes
+- Only methods from collection
+- Strong contract for equals
+- can only contain one `null`
+
+### Use
+```java
+  Set <person> people = new HashSet<Person>();
+  // or you could
+  Collection<Person> people = new HashSet<Person>();
+```
+
+### Remove duplicates
+```java
+  Collection<Type> noDups = new HashSet<Type>(c);
+```
+
+### Set Implementations
+
+- HashSet
+- TreeSet
+- LinkedHashSet
+
+## HashSet
+
+- **stores elements in a hash table**
+- best performing Set
+- no guarantee of order
+- fail-fast
+- not syncronized
+- operations are usually O(1) depending on the hash function of the element.
