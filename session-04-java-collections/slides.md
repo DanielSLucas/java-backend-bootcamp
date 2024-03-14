@@ -1,3 +1,7 @@
+# Equals and HashCode
+
+Look at **EqualsAndHashCode.java**
+
 # Time complexity
 
 How much time it takes to solve a problem.

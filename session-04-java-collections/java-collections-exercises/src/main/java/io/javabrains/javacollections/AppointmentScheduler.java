@@ -2,29 +2,32 @@ package io.javabrains.javacollections;
 
 import java.time.LocalDateTime;
 import java.util.NavigableSet;
+import java.util.TreeSet;
 
 // Implement the  AppointmentScheduler using a NavigableSet internally
 
 public class AppointmentScheduler {
+    private NavigableSet<LocalDateTime> appointments = new TreeSet<>();
+
 
     public void addAppointment(LocalDateTime datetime) {
-        throw new RuntimeException("Not implemented");
+        this.appointments.add(datetime);
     }
 
     public LocalDateTime getNextAvailableSlot(LocalDateTime datetime) {
-        throw new RuntimeException("Not implemented");
+        return this.appointments.ceiling(datetime);
     }
 
     public LocalDateTime removeFirstAppointment() {
-        throw new RuntimeException("Not implemented");
+        return this.appointments.pollFirst();
     }
 
     public LocalDateTime removeLastAppointment() {
-        throw new RuntimeException("Not implemented");
+        return this.appointments.pollLast();
     }
 
     public NavigableSet<LocalDateTime> getAppointmentsAfter(LocalDateTime datetime) {
-        throw new RuntimeException("Not implemented");
+        return this.appointments.tailSet(datetime, false);
     }
 
     public static void main(String[] args) {

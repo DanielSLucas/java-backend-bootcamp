@@ -1,33 +1,38 @@
 package io.javabrains.javacollections;
 
+import java.util.Deque;
+import java.util.LinkedList;
+
 // Implement the BankQueue class and methods. Look at the main method
 // for clues on what the methods need to do
 
 class BankQueue {
 
+    private Deque<String> queue = new LinkedList<>();
+
     public void addCustomer(String customerName) {
-        throw new RuntimeException("Not implemented");
+        this.queue.add(customerName);
     }
 
     //
     public String removeNextCustomer() {
-        throw new RuntimeException("Not implemented");
+        return this.queue.remove();
     }
 
     public int getNumCustomers() {
-        throw new RuntimeException("Not implemented");
+        return this.queue.size();
     }
 
     public String peekNextCustomer() {
-        throw new RuntimeException("Not implemented");
+        return this.queue.peekFirst();
     }
 
     public String peekLastCustomer() {
-        throw new RuntimeException("Not implemented");
+        return this.queue.peekLast();
     }
 
     public void displayCustomers() {
-        throw new RuntimeException("Not implemented");
+        System.out.println(this.queue);
     }
 }
 
