@@ -129,5 +129,11 @@ doesnt generate the class until the first invocation (lazy, invokedynamic called
       Runnable hello = () -> System.out.println("Hello world!");
         hello.run();
       ```
-*If you two args instead of one, there are the interfaces:
+  - If you two args instead of one, you could use one of these interfaces: 
   `BiFunction<T, U, R>`, `BiConsumer<T, U>`, `BiPredicate<T, U>`.
+  - If the lambda has the same return type as the input argument you can use the
+  `Operator` like:
+  ```java
+  UnaryOperator<Integer> myFunc = x -> x * 2;
+  BinaryOperator<String> concat = (a, b) -> a.concat(b);
+  ```
