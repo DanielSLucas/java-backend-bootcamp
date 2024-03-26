@@ -129,3 +129,5 @@ doesnt generate the class until the first invocation (lazy, invokedynamic called
       Runnable hello = () -> System.out.println("Hello world!");
         hello.run();
       ```
+*If you two args instead of one, there are the interfaces:
+  `BiFunction<T, U, R>`, `BiConsumer<T, U>`, `BiPredicate<T, U>`.
