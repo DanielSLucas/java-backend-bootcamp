@@ -166,3 +166,7 @@ BiPredicate<String, String> isCaseInsensitiveEqual = String::equalsIgnoreCase;
 ```
 
 *More examples at: `MethodReferencesDemo.java`
+
+## Lambdas calling lambdas
+
+Look at: `LambdaComposability.java`
