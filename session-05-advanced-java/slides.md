@@ -170,3 +170,7 @@ BiPredicate<String, String> isCaseInsensitiveEqual = String::equalsIgnoreCase;
 ## Lambdas calling lambdas
 
 Look at: `LambdaComposability.java`
+
+## Composability with `andThen` and `compose`
+
+Look at: `ComposableFunctions.java`
