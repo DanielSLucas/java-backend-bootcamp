@@ -75,3 +75,57 @@ If so, why should I use lambda expressions?
 - less verbose
 - more efficient (anonymous classes trigger object creation, while lambdas
 doesnt generate the class until the first invocation (lazy, invokedynamic called))
+
+## JDK functional interfaces
+
+- prebuilt interfaces for common lambda signatures
+- helps avoid having to create functional interfaces
+- in `java.util.functional` package
+- doesnt cover everything
+- Divided in four categories:
+    - Functions
+
+      One arg, one return -> Interface `Function<T, R>`
+      
+      A lambda function that receives an argument of type `T`
+      and returns a value of type `R`.
+      
+      ```java
+      // Receives a int and returns a int
+      Function<Integer, Integer> myFunc = x -> x * 2;
+      myFunc.apply(10);
+      // Receives a int and returns a string
+      Function<Integer, String> foo = x -> "value is " + x;
+      ```
+    - Consumers
+
+      one arg, no return -> Interface `Consumer<T>`
+      
+      ```java
+      Consumer<String> greeting = name -> System.out.println("Hello, " + name);
+      greeting.accept("Koushik");
+      ```
+    - Suppliers
+
+      no args, returns something -> Interface `Supplier<T>`
+
+      ```java
+      Supplier<Double> random =  () -> Math.random();
+      random.get();
+      ```
+    - Predicates
+
+      one arg, returns a Boolean -> Interface `Predicate<T>`
+
+      ```java
+      Predicate<Integer> isEven = num -> (num % 2) == 0;
+      isEven.test(5);
+      ```
+    - Runnable
+
+      `Runnable` interface for lambdas that has no input args and no return.
+      
+      ```java
+      Runnable hello = () -> System.out.println("Hello world!");
+        hello.run();
+      ```

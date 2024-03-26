@@ -24,6 +24,7 @@ public class JDKFunctionalInterfacesDemo {
         Predicate<Integer> isEven = num -> (num % 2) == 0;
         isEven.test(5);
 
-
+        Runnable hello = () -> System.out.println("Hello world!");
+        hello.run();
     }
 }
