@@ -137,3 +137,32 @@ doesnt generate the class until the first invocation (lazy, invokedynamic called
   UnaryOperator<Integer> myFunc = x -> x * 2;
   BinaryOperator<String> concat = (a, b) -> a.concat(b);
   ```
+
+## Method reference
+
+Method reference is a syntax shortcut, that you can use address a method 
+behavior to a lambda.
+
+So this:
+```java
+Supplier<Double> random = () -> Math.random();
+```
+Can be written like this:
+```java
+Supplier<Double> random = Math::random;
+```
+
+Another examples of equivalent code:
+```java
+
+Consumer<String> printName = name -> System.out.println(name);
+Consumer<String> printName = System.out::println(name);
+
+UnaryOperator<String> trim = str -> str.trim();
+UnaryOperator<String> trim = String::trim;
+
+BiPredicate<String, String> isCaseInsensitiveEqual = (a, b) -> a.equalsIgnoreCase(b);
+BiPredicate<String, String> isCaseInsensitiveEqual = String::equalsIgnoreCase;
+```
+
+*More examples at: `MethodReferencesDemo.java`
