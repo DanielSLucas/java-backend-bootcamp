@@ -184,3 +184,14 @@ Look at: `ComposableFunctions.java`
 - the value is used when the lambda runs
 
 Example at: `ScopesProblem.java`
+
+## Pure functions
+
+- Depends only on the input args, no external variables/dependecies
+- identical arguments hava identical return values
+- no side effects
+
+Example: 
+```java
+  UnaryOperator<Integer> myFunc = x -> x * 2;
+```
