@@ -195,3 +195,17 @@ Example:
 ```java
   UnaryOperator<Integer> myFunc = x -> x * 2;
 ```
+
+## Streams API
+
+A stream is a single use declarative sequential data pipelines with lazy execution.
+
+- alternative approach to "process" a collection
+- declarative approach
+- lazy evaluation
+- utilizes functional programming
+- composability
+- supports parallel execution
+- optimized performance
+
+Look at `StreamsDemo.java`!
