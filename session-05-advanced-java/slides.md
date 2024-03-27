@@ -174,3 +174,13 @@ Look at: `LambdaComposability.java`
 ## Composability with `andThen` and `compose`
 
 Look at: `ComposableFunctions.java`
+
+## Closures
+
+- lambdas can access variables in scope
+- but run in a completely different scope
+- what happens to the variables?
+- Java remembers and "locks" the values
+- the value is used when the lambda runs
+
+Example at: `ScopesProblem.java`
