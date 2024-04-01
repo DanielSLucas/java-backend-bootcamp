@@ -222,3 +222,27 @@ Look at `StreamsDemo.java`!
     - operations that end (and start!) the stream
     - produces a final result or a side effect
     - the main "point" of the whole operation
+
+### Streams vs Collections
+
+Collections -> Data storage mechanism.
+Streams -> Data processing mechanism
+
+- Collections are **mutable**, Streams are not!
+- Collections operations are **eager**, streams are **lazy**.
+- Collectiojns focus on **storing**, Streams on **processing and transforming**.
+- Collections are agnostic **parallelism support**, while Streams support it.
+
+As opposed to Collections, Streams cannot do in-place modifications, they are immutable! 
+Every time you want to transform the elements of a stream you are going to create a new one!
+
+The benefits of this approach:
+
+- safe4 for parallel processing
+- side-effect free
+- improved debugging
+- encourages stateless behavior
+- better composability
+
+
+
