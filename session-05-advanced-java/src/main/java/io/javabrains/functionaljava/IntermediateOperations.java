@@ -1,5 +1,6 @@
 package io.javabrains.functionaljava;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 public class IntermediateOperations {
@@ -29,10 +30,18 @@ public class IntermediateOperations {
       .filter(name -> name.length() < 6);
     
     System.out.println("Nothing of.peek printed so far");
-
-    stringStream.toList(); // need to call a terminal operation so the stream starts!
+    List<String> namesProcessed = stringStream.toList(); // need to call a terminal operation so the stream starts!
     // this happens due to the lazyness of the streams
-
     System.out.println(".peek printed!");
+
+
+    numbers = Stream.of(1, 2, 9, 8, 3, 6, 4, 3, 4, 5, 6, 7, 8, 9, 10);
+    numbers
+      .distinct() // remove duplicates
+      .peek(System.out::println)
+      .sorted() // sort the elements, but only when the stream is ended, 
+      // it needs to consume the entire stream to be able to sort it
+      .forEach(System.out::println);;
+
   }
 }
