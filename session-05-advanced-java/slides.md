@@ -209,3 +209,16 @@ A stream is a single use declarative sequential data pipelines with lazy executi
 - optimized performance
 
 Look at `StreamsDemo.java`!
+
+### Key Elements of Streams API
+
+- Stream
+    - a sequence of elements from a source
+    - can be processed in parallel or sequentially
+- Intermediate operations
+    - operations applied to every element of a stream
+    - transforms a stream into another stream
+- Terminal operations
+    - operations that end (and start!) the stream
+    - produces a final result or a side effect
+    - the main "point" of the whole operation
