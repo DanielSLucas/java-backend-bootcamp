@@ -608,3 +608,29 @@ Example:
 ```sql
  REVOKE INSERT ON Employees FROM John;
 ```
+
+# Foreign key
+
+- one or more columns in a table
+- provides a link to data in other tables
+- used to cross-reference tables
+- help maintain data integrity
+- must match the primary key column of another table
+- or be NULL
+
+## Example
+
+```sql
+  CREATE TABLE Customers (
+    CustumerID INT PRIMARY KEY,
+    FirstName VARCHAR(100),
+    LastName VARCHAR(100)
+  );
+
+  CREATE TABLE Orders (
+    OrderID INT PRIMARY KEY,
+    ProductName VARCHAR(100),
+    CustomerID INT,
+    FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
+  );
+```
