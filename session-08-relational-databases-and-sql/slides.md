@@ -31,3 +31,16 @@
 - Flexibility and scalability
 - Strong consistency and ACID (Atomicity, Consistency, Isolation and Durability) compliance
 - Rich ecosystem (tools, libraries, frameworks)
+
+# Introduction to SQL
+
+## What is SQL?
+
+- Universal language for databases
+- Allows for managing and manipulating relational databases
+
+## Why SQL?
+
+- Widely used in managing data
+- Foundation for many advanceda database operations
+- Vital for data analysis, database management, and data-driven decision making
