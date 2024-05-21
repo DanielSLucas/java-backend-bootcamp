@@ -108,3 +108,17 @@ VALUES (1, 'John Doe', 'Software Engineer', 'Development');
 
 You can download some example databases from mysql website, https://dev.mysql.com/doc/index-other.html (Import the `.sql` files using the source command).
 
+## SLQ 'Hello World'
+
+```bash
+mysql> select "Hello World!";
++--------------+
+| Hello World! |
++--------------+
+| Hello World! |
++--------------+
+1 row in set (0.00 sec)
+```
+
+***SQL always returns tables!**
+
