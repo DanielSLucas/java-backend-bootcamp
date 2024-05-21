@@ -237,3 +237,49 @@ DROP DATABASE TestDB;
 
 DROP TABLE TempEmployees;
 ```
+
+# Table Creation Example
+
+```bash
+mysql> create database studentdb;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> use studentdb;
+Database changed
+
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> CREATE TABLE Students (
+    ->   student_id INT AUTO_INCREMENT PRIMARY KEY,
+    ->   name VARCHAR(100),
+    ->   age INT,
+    ->   gender ENUM('Male', 'Female', 'Other'),
+    ->   contact_number VARCHAR(20),
+    ->   enrollment_date DATE,
+    ->   course_enrolled VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> show tables;
++---------------------+
+| Tables_in_studentdb |
++---------------------+
+| Students            |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> desc Students;
++-----------------+-------------------------------+------+-----+---------+----------------+
+| Field           | Type                          | Null | Key | Default | Extra          |
++-----------------+-------------------------------+------+-----+---------+----------------+
+| student_id      | int                           | NO   | PRI | NULL    | auto_increment |
+| name            | varchar(100)                  | YES  |     | NULL    |                |
+| age             | int                           | YES  |     | NULL    |                |
+| gender          | enum('Male','Female','Other') | YES  |     | NULL    |                |
+| contact_number  | varchar(20)                   | YES  |     | NULL    |                |
+| enrollment_date | date                          | YES  |     | NULL    |                |
+| course_enrolled | varchar(100)                  | YES  |     | NULL    |                |
++-----------------+-------------------------------+------+-----+---------+----------------+
+7 rows in set (0.01 sec)
+```
