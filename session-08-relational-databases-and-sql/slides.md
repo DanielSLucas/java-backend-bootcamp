@@ -175,3 +175,65 @@ mysql> select "Hello World!";
 - XML
 - JSON
 - UUID
+
+# Data Definition Language
+
+## What it is?
+
+- Component of SQL
+- Used for defining and managing database structures
+- Contains commands like CREATE, ALTER, adn DROP
+
+## The CREATE command
+
+- used to create a new database ou tabble
+- Basic syntax:
+  ```sql
+  CREATE DATABASE database_name;
+  ```
+  ```sql
+  CREATE TABLE table_name (column1 datatype, column2 datatype, ...);
+  ```
+
+## Example of CREATE Command
+
+```sql
+CREATE DATABASE EmployeeDB;
+
+CREATE TABLE Employees (
+  ID INT PRIMARY KEY,
+  Name VARCHAR(50)
+  Position VARCHAR(50),
+  Department VARCHAR(50)
+);
+```
+
+## The ALTER Command
+- Used to modify an existing database or table
+  ```sql
+  ALTER TABLE table_name ADD column_name datatype;
+  ```
+## Example of ALTER Command
+
+```sql
+ALTER TABLE Employees ADD Salary DECIMAL(8,2);
+```
+
+## The DROP Command
+
+- Used to delete an entire database or table;
+- Basic syntax:
+  ```sql
+  DROP DATABASE database_name;
+  ```
+  ```sql
+  DROP TABLE table_name;
+  ```
+
+## Example of DROP Command
+
+```sql
+DROP DATABASE TestDB;
+
+DROP TABLE TempEmployees;
+```
