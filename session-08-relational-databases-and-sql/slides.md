@@ -446,3 +446,63 @@ mysql> select Name, Code from country WHERE Name = 'India';
 +-------+------+
 1 row in set (0.01 sec)
 ```
+
+# Understanding NULL in SQL
+
+- NULL represents a missing/unknown value
+- treated somewhat differently
+- comparison operators don't work
+- any arithmetic comparison with NULL results in NULL
+
+## What NULL means?
+
+- Value is undefined
+- Value is unknown at the time
+- Value is not applicable
+
+## NULL properties
+
+- Something can be NULL. But no equal to NULL
+- Two NULLs are not equal
+
+## How to check?
+- IS NULL operator
+- IS NOT NULL operator
+
+### Example
+
+```bash
+mysql> INSERT INTO Students (name, age, gender, contact_number, enrollment_date, course_enrolled)
+    -> VALUES ('Robert Frost', 20, 'Male', '1234567890', '2023-05-15', 'Computer Science');
+
+mysql> INSERT INTO Students (name, age, gender, contact_number, enrollment_date, course_enrolled)
+    -> VALUES ('Maya Angelou', 22, 'Female', NULL, '2023-06-01', 'Poetry');
+
+mysql> select * from Students;
++------------+--------------+------+--------+----------------+-----------------+------------------+
+| student_id | name         | age  | gender | contact_number | enrollment_date | course_enrolled  |
++------------+--------------+------+--------+----------------+-----------------+------------------+
+|          2 | Robert Frost |   20 | Male   | 1234567890     | 2023-05-15      | Computer Science |
+|          3 | Maya Angelou |   22 | Female | NULL           | 2023-06-01      | Poetry           |
++------------+--------------+------+--------+----------------+-----------------+------------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from Students where contact_number = NULL;
+Empty set (0.00 sec)
+
+mysql> select * from Students where contact_number IS NULL;
++------------+--------------+------+--------+----------------+-----------------+-----------------+
+| student_id | name         | age  | gender | contact_number | enrollment_date | course_enrolled |
++------------+--------------+------+--------+----------------+-----------------+-----------------+
+|          3 | Maya Angelou |   22 | Female | NULL           | 2023-06-01      | Poetry          |
++------------+--------------+------+--------+----------------+-----------------+-----------------+
+1 row in set (0.00 sec)
+
+mysql> select * from Students where contact_number IS NOT NULL;
++------------+--------------+------+--------+----------------+-----------------+------------------+
+| student_id | name         | age  | gender | contact_number | enrollment_date | course_enrolled  |
++------------+--------------+------+--------+----------------+-----------------+------------------+
+|          2 | Robert Frost |   20 | Male   | 1234567890     | 2023-05-15      | Computer Science |
++------------+--------------+------+--------+----------------+-----------------+------------------+
+1 row in set (0.00 sec)
+```
