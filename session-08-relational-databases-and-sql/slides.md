@@ -108,7 +108,7 @@ VALUES (1, 'John Doe', 'Software Engineer', 'Development');
 
 You can download some example databases from mysql website, https://dev.mysql.com/doc/index-other.html (Import the `.sql` files using the source command).
 
-## SLQ 'Hello World'
+# SLQ 'Hello World'
 
 ```bash
 mysql> select "Hello World!";
@@ -122,3 +122,56 @@ mysql> select "Hello World!";
 
 ***SQL always returns tables!**
 
+# SQL data types
+
+- Several common data types
+- Specific data types available may vary slightly
+- Depends on the DBMS used
+
+## Integer
+
+- represents whole numbers withou decimal places
+- can vay, such as INT, SMALLINT, or BIGINT
+
+## DECIMAL/numeric
+
+- decimal number with a specified precision and scale
+- precision is the total number of digits
+- scale is the number of decimal places
+
+## Character strings
+
+- CHAR: fixed-length character strings
+- VARCHAR: variable-length character strings
+- TEXT: large amounts of data
+
+## Date and time
+
+- DATA: a data without a time component
+- TIME: a time without a date component
+- TIMESTAP: both data and time
+- DATETIME: both data and time
+
+## Boolean (BOOL)
+
+- a logical value: true or false
+
+## Floating-point numbers
+
+- for decimal numbers with floating-point precision
+- FLOAT
+- DOUBLE
+
+## Binary data
+
+- for binary or byte data
+- BLOB (Binary Large Object)
+- BINARY
+- VARBINARY (for variable-length binary data)
+
+## Others
+
+- Enumerated types
+- XML
+- JSON
+- UUID
