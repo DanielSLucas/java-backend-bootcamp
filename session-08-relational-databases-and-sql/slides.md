@@ -91,3 +91,20 @@ CREATE TABLE Employees (
 INSERT INTO Employees (ID, Name, Position, Department)
 VALUES (1, 'John Doe', 'Software Engineer', 'Development');
 ```
+
+# Setting MySQL up
+
+```bash
+  # creates and runs a MySQL container
+  docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql
+
+  # access to the container bash
+  docker exect -it some-mysql bash
+
+  # use MySQL CLI
+  mysql -u root -p 
+  # Then type your password
+```
+
+You can download some example databases from mysql website, https://dev.mysql.com/doc/index-other.html (Import the `.sql` files using the source command).
+
