@@ -506,3 +506,45 @@ mysql> select * from Students where contact_number IS NOT NULL;
 +------------+--------------+------+--------+----------------+-----------------+------------------+
 1 row in set (0.00 sec)
 ```
+
+# Query clauses
+
+## SELECT
+- specify the columns or expressions to retrive from the table
+- determines which data elments are in the query result
+
+## FROM
+- specify table(s) to retrive data from
+- identifies the source of the data for the query
+
+## WHERE
+- filter the rows in the table based on specified conditions
+- criteria must be met for a row to be included in the query result
+
+## GROUP BY 
+- group rows together based on one or more columns
+- typically used with aggregate functions like COUNT, SUM, AVG, etc
+
+## HAVING
+- filter the groups created by the GROUP BY clause
+- conditions must be met by the groups themselves
+- similar to the WHERE clause which operates on individual rows
+
+## ORDER BY
+- sort the result set based on column(s)
+- control the sequence of rows in the query result
+
+## LIMIT/OFFSET
+- often used together for pagination
+- LIMIT restricts the number of rows
+- OFFSET specifies the starting point
+
+# Order of evaluation of a SELECT query
+
+1. FROM: identifies the table(s)
+2. WHERE: filters the rows
+3. GROUP BY: result set is grouped
+4. HAVING: filters the grouped data
+5. SELECT: selects the columns or expressions to be included
+6. ORDER BY: result set is sorted based on specified column(s)
+7. LIMIT/OFFSET: result is limited and offset if applicable
