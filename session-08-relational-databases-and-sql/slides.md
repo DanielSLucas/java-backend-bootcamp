@@ -563,3 +563,14 @@ mysql> select * from Students where contact_number IS NOT NULL;
 - Performance implications
 - Used to simplify queries by extracting complexity
 - Used to hide columns from people
+
+# Group by and Order by
+
+Example:
+```sql
+  SELECT CountryCode, sum(Population) 
+  FROM city 
+  GROUP BY CountryCode 
+  HAVING sum(Population) > 1700000 
+  ORDER BY sum(Population) DESC; -- you could use '2' (index) instead of 'sum(Population)' or even a alias
+```
