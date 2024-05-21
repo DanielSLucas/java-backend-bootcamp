@@ -548,3 +548,18 @@ mysql> select * from Students where contact_number IS NOT NULL;
 5. SELECT: selects the columns or expressions to be included
 6. ORDER BY: result set is sorted based on specified column(s)
 7. LIMIT/OFFSET: result is limited and offset if applicable
+
+# SQL table types
+
+- Permanent tables (normal tables)
+- Derived tables (results of a query, a subselect for example)
+- Temporary tables (`CREATE TEMPORARY TABLE`, so it exists during a session)
+- Virtual tables (Views - queries 'pretending' to be a table, `CREATE VIEW view_name AS your_query`)
+
+## Views
+- No actual table exists
+- Just remembers the query
+- When you use the view, it auto-wraps the query
+- Performance implications
+- Used to simplify queries by extracting complexity
+- Used to hide columns from people
