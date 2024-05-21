@@ -195,7 +195,7 @@ mysql> select "Hello World!";
   CREATE TABLE table_name (column1 datatype, column2 datatype, ...);
   ```
 
-## Example of CREATE Command
+### Example of CREATE Command
 
 ```sql
 CREATE DATABASE EmployeeDB;
@@ -213,7 +213,7 @@ CREATE TABLE Employees (
   ```sql
   ALTER TABLE table_name ADD column_name datatype;
   ```
-## Example of ALTER Command
+### Example of ALTER Command
 
 ```sql
 ALTER TABLE Employees ADD Salary DECIMAL(8,2);
@@ -230,7 +230,7 @@ ALTER TABLE Employees ADD Salary DECIMAL(8,2);
   DROP TABLE table_name;
   ```
 
-## Example of DROP Command
+### Example of DROP Command
 
 ```sql
 DROP DATABASE TestDB;
@@ -282,4 +282,167 @@ mysql> desc Students;
 | course_enrolled | varchar(100)                  | YES  |     | NULL    |                |
 +-----------------+-------------------------------+------+-----+---------+----------------+
 7 rows in set (0.01 sec)
+```
+
+# Data Manipulation Language
+
+## What is it?
+
+- Part of SQL
+- Used for managin the data within tables
+- Includes commands like SELECT, INSERT, UPDATE, and DELETE
+
+
+## The SELECT command
+
+- used to retrive data from a database
+- Basic syntax:
+  ```sql
+    SELECT column_name FROM table_name WHERE condition;
+  ```
+
+### Example of SELECT command
+
+```sql
+  SELECT Name, Position
+  FROM Employees
+  WHERE Department = 'Development';
+```
+
+## The INSERT command
+
+- used to insert new data into a table
+- Basic syntax:
+  ```sql
+    INSERT INTO table_name (column1, column2, ...)
+    VALUES (value1, value2, ...);
+  ```
+
+### Example of INSERT command
+
+```sql
+  INSERT INTO Employees (ID, Name, Position, Department)
+  VALUES (1, 'John Doe', 'Software Engineer', 'Development');
+```
+
+## The UPDATE command
+
+- used to modify existing data in a table
+- Basic syntax:
+  ```sql
+    UPDATE table_name SET column1=value1, column2=value2, ...
+    WHERE condition;
+  ```
+
+### Example of UPDATE command
+
+```sql
+  UPDATE Employees 
+  SET Position = 'Senior Staff Poet'
+  WHERE ID = 1;
+```
+
+## The DELETE command
+
+- used to delete from a table
+- Basic syntax:
+  ```sql
+    DELETE FROM table_name
+    WHERE condition;
+  ```
+
+### Example of DELETE command
+
+```sql
+  DELETE FROM Employees
+  WHERE ID = 1;
+```
+
+## DML hands on
+
+```bash
+mysql> INSERT INTO Students (name, age, gender, contact_number, enrollment_date, course_enrolled)
+    -> VALUES ('Robert Frost', 20, 'Male', '1234567890', '2023-05-15', 'Computer Science');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM Students;
++------------+--------------+------+--------+----------------+-----------------+------------------+
+| student_id | name         | age  | gender | contact_number | enrollment_date | course_enrolled  |
++------------+--------------+------+--------+----------------+-----------------+------------------+
+|          1 | Robert Frost |   20 | Male   | 1234567890     | 2023-05-15      | Computer Science |
++------------+--------------+------+--------+----------------+-----------------+------------------+
+1 row in set (0.00 sec)
+
+mysql> UPDATE Students SET contact_number = '9876543210' WHERE student_id = 1;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
++------------+--------------+------+--------+----------------+-----------------+------------------+
+| student_id | name         | age  | gender | contact_number | enrollment_date | course_enrolled  |
++------------+--------------+------+--------+----------------+-----------------+------------------+
+|          1 | Robert Frost |   20 | Male   | 9876543210     | 2023-05-15      | Computer Science |
++------------+--------------+------+--------+----------------+-----------------+------------------+
+1 row in set (0.00 sec)
+
+mysql> DELETE FROM Students WHERE student_id = 1;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> SELECT * FROM Students;
+Empty set (0.00 sec)
+
+
+mysql> use world;
+Database changed
+
+mysql> show tables;
++-----------------+
+| Tables_in_world |
++-----------------+
+| city            |
+| country         |
+| countrylanguage |
++-----------------+
+3 rows in set (0.01 sec)
+
+mysql> select * from city limit 10;
++----+----------------+-------------+---------------+------------+
+| ID | Name           | CountryCode | District      | Population |
++----+----------------+-------------+---------------+------------+
+|  1 | Kabul          | AFG         | Kabol         |    1780000 |
+|  2 | Qandahar       | AFG         | Qandahar      |     237500 |
+|  3 | Herat          | AFG         | Herat         |     186800 |
+|  4 | Mazar-e-Sharif | AFG         | Balkh         |     127800 |
+|  5 | Amsterdam      | NLD         | Noord-Holland |     731200 |
+|  6 | Rotterdam      | NLD         | Zuid-Holland  |     593321 |
+|  7 | Haag           | NLD         | Zuid-Holland  |     440900 |
+|  8 | Utrecht        | NLD         | Utrecht       |     234323 |
+|  9 | Eindhoven      | NLD         | Noord-Brabant |     201843 |
+| 10 | Tilburg        | NLD         | Noord-Brabant |     193238 |
++----+----------------+-------------+---------------+------------+
+10 rows in set (0.00 sec)
+
+mysql> select Name, Code from country limit 10;
++----------------------+------+
+| Name                 | Code |
++----------------------+------+
+| Aruba                | ABW  |
+| Afghanistan          | AFG  |
+| Angola               | AGO  |
+| Anguilla             | AIA  |
+| Albania              | ALB  |
+| Andorra              | AND  |
+| Netherlands Antilles | ANT  |
+| United Arab Emirates | ARE  |
+| Argentina            | ARG  |
+| Armenia              | ARM  |
++----------------------+------+
+10 rows in set (0.00 sec)
+
+mysql> select Name, Code from country WHERE Name = 'India';
++-------+------+
+| Name  | Code |
++-------+------+
+| India | IND  |
++-------+------+
+1 row in set (0.01 sec)
 ```
