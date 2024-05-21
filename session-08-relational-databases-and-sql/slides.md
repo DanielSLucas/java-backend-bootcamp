@@ -574,3 +574,37 @@ Example:
   HAVING sum(Population) > 1700000 
   ORDER BY sum(Population) DESC; -- you could use '2' (index) instead of 'sum(Population)' or even a alias
 ```
+
+# Data Control Language (DCL)
+
+- Subset of SQL
+- Used for controlling access to data in a database
+- Includes commands like GRANT and REVOKE:
+    - used for security
+    - determine user roles and necessary privileges
+    - grant only the necessary privileges
+    - regulary review and revoke unnecessary privileges
+
+## The GRANT Command
+- Used to give users permissions
+- Basic syntax:
+```sql
+ GRANT privilege_name ON object_name TO {user_name|PUBLIC|role_name}
+```
+### Example of GRANT Command
+
+```sql
+ GRANT SELECT, INSERT ON Employees TO John;
+```
+
+## The REVOKE Command
+- Used to take back permissions from users
+- Basic syntax:
+```sql
+ REVOKE privilege_name ON object_name FROM {user_name|PUBLIC|role_name}
+```
+### Example of REVOKE Command
+
+```sql
+ REVOKE INSERT ON Employees FROM John;
+```
