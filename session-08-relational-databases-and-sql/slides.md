@@ -634,3 +634,115 @@ Example:
     FOREIGN KEY (CustomerID) REFERENCES Customers(CustomerID)
   );
 ```
+
+# Joins
+
+- let us _join_ tables
+- let us specify _how_ they are joined
+
+## Default JOIN (INNER JOIN)
+
+- All possible combinations (Cartesian product)
+
+## The ON clause
+
+- filtering happens when retriving and joining the tables
+- only relevant rows that satisfy the ON condition are combined
+- more efficient to put that condition in the ON clause rather than the WHERE
+- database's query optmizer might do that anyway, but use ON for join as best practice
+
+### Example
+
+Getting all orders with their corresponding customer and filtering the customers
+that have informed their email.
+
+```sql
+  SELECT o.OrderID, c.CustomerName, c.CustomerEmail
+  FROM Orders o
+  JOIN Customers c
+  ON o.CustomerID = c.CustomerID
+  WHERE c.CustomerEmail IS NOT NULL;
+```
+
+
+## OUTER JOIN
+- returns records even if there is no match in the other table
+- types: LEFT JOIN, RIGHT JOIN, FULL JOIN
+
+## LEFT OUTER JOIN (LEFT JOIN)
+
+- all the rows from the left table and the matched rows from the right table
+- if there is no match, the result is NULL on the right side
+
+### Example
+
+Getting all customers with their orders, even if they dont have orders (in that
+case the order will be NULL)
+
+```sql
+  SELECT c.CustomerName, o.OrderID
+  FROM Customers c
+  LEFT JOIN Orders o
+  ON c.CustomerID = o.CustomerID;
+```
+
+## RIGHT OUTER JOIN
+
+- all the rows from the right table and the matched rows from the left table
+- if there is no match, the result is NULL on the left side
+
+### Example
+
+Getting all orders with its customer, but for orders that dont have a customer
+the customer will be NULL, or will not show up in the result
+
+```sql
+  SELECT c.CustomerName, o.OrderID
+  FROM Customers c
+  RIGHT JOIN Orders o
+  ON c.CustomerID = o.CustomerID;
+```
+
+## FULL OUTER JOIN
+- all rows when there is a match in either the left table or the right table
+- if there is no match, the result is NULL on either side
+
+### Example
+
+Getting all customers and all orders, with null in the place of the customer/order if it is missing
+
+```sql
+  SELECT c.CustomerName, o.OrderID
+  FROM Customers c
+  FULL JOIN Orders o
+  ON c.CustomerID = o.CustomerID;
+```
+
+## Remember
+
+- not all databases support all types of joins
+- example: `FULL JOIN` not supported by MySQL
+- most result can be achived by a combination of joins
+
+## Joins on derived queries
+
+Number of orders for customer ids
+```sql
+  SELECT CustomerID, COUNT(*) as NumberOfOrders
+  FROM Orders
+  GROUP BY CustomerID
+  HAVING COUNT(*) > 1
+```
+
+Now JOIN to get names and order counts!
+
+```sql
+ SELECT c.CustomerName, co.NumberOfOrders
+ FROM Customers c
+ JOIN (
+  SELECT CustomerID, COUNT(*) as NumberOfOrders
+  FROM Orders
+  GROUP BY CustomerID
+  HAVING COUNT(*) > 1
+ ) co ON c.CustomerID = co.CustomerID;
+```
