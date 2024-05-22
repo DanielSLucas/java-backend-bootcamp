@@ -822,3 +822,50 @@ Now JOIN to get names and order counts!
 - Can be difficult to read and debug
 - Can lead to performance issues if not optimized correctly
 - Deeply nested queries can become overly complex
+
+# Understanting SQL indexes
+
+## What is it?
+
+- Database structure to improve the speed of data retrieval
+- Acts like a lookup table
+- Typically used on columns used in WHERE clause, JOIN operations
+
+## Example
+
+- `Users` table
+- fields `UserID`, `UserName`, and `Email`
+
+```sql
+  SELECT * FROM Users
+  WHERE UserID = 10;
+```
+
+This query should have the time complexity of O(N), like it was doing a full
+table scan, but no! The timecomplexity is actually sublinear, due to database
+optimization, they actually create an index, but just for primary keys!
+
+If you want to optimize the search using another column you can create a index:
+```sql
+  CREATE INDEX idx_users_email
+  ON Users (Email);
+```
+
+## Composite index
+
+- what we saw was single column index
+- can create compisite index with multiple columns
+- speed up queries that specify both or the first
+
+## Benefits of Indexes
+
+- Improve query performance
+- Avoids full table scan
+- Sub-lenar performance
+- Allow quicker sorting and grouping of data
+
+## Drawbacks of Indexes
+
+- they slow down write operations such as `INSERT`, `UPDATE`, and `DELETE`
+- with every write, any indexes should be updated
+- require storage space
