@@ -746,3 +746,79 @@ Now JOIN to get names and order counts!
   HAVING COUNT(*) > 1
  ) co ON c.CustomerID = co.CustomerID;
 ```
+
+# Subqueries and nested queries
+
+## What are Subqueries?
+
+- queries embedded within other queries
+- can return data used in the outer query
+- can be used in SELECT, INSERT, UPDATE, DELETE, WHERE, and FROM clauses
+
+## Types of Subqueries
+
+### Scalar subquery
+
+- returns a single value
+- used where a single value is expected
+- in a SELECT, WHERE, or in a expression
+- Example:
+  ```sql
+    SELECT name, age
+    FROM students
+    WHERE age > (SELECT AVG(age) FROM students);
+  ```
+
+### Row subquery
+
+- returns a single row of data
+- used where a single row is expected
+- in a FROM clause or as part of a comparison
+- Example:
+  ```sql
+    SELECT *
+    FROM students
+    WHERE (name, age) = (SELECT name, age FROM other_table WHERE condition);
+  ```
+
+### Column subquery
+
+- returns a single column of data
+- used where a single column is expected
+- in the SELECT clause or an IN or EXISTS condition
+- Example:
+  ```sql
+    SELECT name
+    FROM students
+    WHERE age IN (SELECT age FROM other_table WHERE condition);
+  ```
+
+### Table subquery
+
+- also known as derived table
+- used as virtual table in the FROM clause
+- treat the result of the subquery as a temporary table
+- Example:
+  ```sql
+    SELECT *
+    FROM (SELECT name, age FROM other_table WHERE condition) AS subquery_table
+    WHERE subquery_table.age > 20;
+  ```
+
+## Nested Queries
+
+- Subqueries nested inside another subquery
+- Can be multiple levels deep
+- Require careful construction and testing
+
+### When to use?
+
+- Breaking down complex problems
+- When operations need to be performed in a specific order
+- Querying data from multiple tables that dont have a direct link
+
+### Pontential Drawbacks
+
+- Can be difficult to read and debug
+- Can lead to performance issues if not optimized correctly
+- Deeply nested queries can become overly complex
