@@ -869,3 +869,59 @@ If you want to optimize the search using another column you can create a index:
 - they slow down write operations such as `INSERT`, `UPDATE`, and `DELETE`
 - with every write, any indexes should be updated
 - require storage space
+
+# Using SQL Triggers
+
+## What is it?
+
+- Special procedures that are automatically executed in response to certain events
+- Used to enforce business rules or data integrity
+- Can respond to INSERT, UPDATE, and DELETE events
+
+## Benefits
+
+- Can automatically enforce business rules or data integrity
+- Make your database more robust and self-sufficient
+- Reduce the amount of application code needed
+
+## Example
+
+Given those two tables:
+
+```sql
+  CREATE TABLE employees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50)
+    department VARCHAR(50),
+    salary DECIMAL(10, 2)
+  );
+
+  CREATE TABLE salary_history (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    employee_id INT,
+    old_salary DECIMAL(10, 2),
+    new_salary DECIMAL(10, 2),
+    change_date DATE,
+    FOREIGN KEY (employee_id) REFERENCES employees(id)
+  );
+```
+
+We want add a record to the salary history when an employee's salary is updated, and
+we can do that with a trigger:
+
+```sql
+  CREATE TRIGGER salary_update_trigger
+  AFTER UPDATE ON employees
+  FOR EACH ROW
+  BEGIN
+    IF NEW.salary != OLD.salary THEN
+      INSERT INTO salary_history (employee_id, old_salary, new_salary, change_date)
+      VALUES (OLD.id, OLD.salary, NEW.salary, CURDATE());
+    END IF;
+  END;
+```
+
+## Disadvantages
+- non-relational interdependies
+- can cause performance slowdowns
+- "magic" is hard to debug
