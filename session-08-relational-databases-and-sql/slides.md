@@ -925,3 +925,26 @@ we can do that with a trigger:
 - non-relational interdependies
 - can cause performance slowdowns
 - "magic" is hard to debug
+
+# Query optimization with EXPLAIN
+
+## Query optimization
+
+- improve database performance
+- increase application efficiency
+- minimize resource usage
+
+## What is EXPLAIN?
+
+- A tool to understand SQL query execution
+- Reveals the "plan" database engine uses to execute the query
+- Helps identify bottlenecks or inefficiencies
+
+## Using EXPLAIN
+
+- Precede your SQL query with "EXPLAIN"
+- Analyze the output: Operation, Object Name, Cost, Cardinality, Bytes
+- Identify high-cost operations
+- Spot full table scans
+- Adjust query or schema based on the results
+
